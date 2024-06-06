@@ -1,0 +1,238 @@
+section{
+    margin-bottom: 50px;
+    border-bottom: 2px solid red;
+    padding-bottom: 50px;
+}
+
+.test {
+    // .test__grid
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(5,1fr); // растягивает колонки на всю ширину,
+        grid-gap: 20px;
+    }
+
+    // .test__item
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 300px;
+        background-color: gray;
+        border: 1px solid black;
+        p{
+            font-size: 30px;
+        }
+    }
+}
+
+
+.test-two {
+
+
+        // .test-two__grid
+
+        &__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));// авто перенос колонок на новый ряд при изменении колонки 200px
+            grid-gap: 20px;
+          
+        }
+    
+
+		// .test__item
+
+		&__item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            background-color: gray;
+            border: 1px solid black;
+          
+           
+            p{
+                font-size: 30px;
+            }
+          
+        }
+
+
+}
+
+.test-three {
+
+    // .test-three__grid
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
+        grid-gap: 20px;
+        grid-auto-flow: dense;
+       
+    }
+
+    // .test-three__item
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 300px;
+        background-color: gray;
+        border: 1px solid black;
+        p{
+            font-size: 30px;
+            
+        }
+        &:nth-child(3){// 
+            grid-column: span 2;// растягиваем колноку на две.
+            @media (max-width:460px){
+                grid-column: span 1;
+            }
+        }
+        
+    }
+}
+
+
+//==========================
+.my-div {
+
+    // .my-div__grid
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(200px, 1fr));
+        grid-auto-flow: dense;
+        grid-gap: 20px;
+       
+        @media (max-width:1200px){
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            
+        }
+    }
+
+    // .my-div__item
+
+    &__item {
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        min-height: 300px;
+        background-color: gray;
+        border: 1px solid black;
+       justify-items: center;
+       text-align: center;
+       
+        
+        // &:nth-child(2n + 2){// каждый второй начиная со второго 
+        //     grid-column: 1 / -1;// c первой по последнию
+        //     background: rgba(11, 111, 222, 0.5);
+        // }
+        p{
+            font-size: 30px;
+           
+        }
+    }
+}
+
+
+//  grid-area
+
+.block {
+    height: 100vh;
+    // .block__grid
+
+    &__grid {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: minmax(100px, 300px) minmax(300px, 1fr);
+        grid-template-rows: 100px 1fr 100px;
+        grid-template-areas: 
+            "header header"
+            "sidebar main"
+            "footer footer"
+        ;
+
+       height: 100%;
+       @media (max-width:480px){
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header header"
+            "sidebar sidebar"
+            "main main"
+            "footer footer"
+        ;
+       }
+    }
+
+    // .block__item
+
+    &__item {
+        padding: 10px;
+        background-color: rgb(62, 62, 247);
+        text-align: center;
+        color: #fff;
+        font-size: 22px;
+        border: 1px solid black;
+        &--header{
+            grid-area: header;
+        }
+        &--sidebar{
+            grid-area: sidebar;
+        }
+        &--main{
+            grid-area: main;
+           
+        }
+        &--footer{
+            grid-area: footer;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
